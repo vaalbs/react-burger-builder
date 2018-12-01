@@ -3,7 +3,7 @@ import classes from './BurgerIngredient.css';
 import PropTypes from 'prop-types';
 
 // use {} when you have logic before return Jsx
-class BurguerIngredient extends Component {
+class BurgerIngredient extends Component {
     render() {
         let ingredient = null;
 
@@ -39,8 +39,8 @@ class BurguerIngredient extends Component {
     }
 } 
 
-BurguerIngredient.propTypes = {
+BurgerIngredient.propTypes = {
     type: PropTypes.string.isRequired
 };
 
-export default BurguerIngredient;
+export default BurgerIngredient;

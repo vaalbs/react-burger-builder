@@ -6,6 +6,7 @@ class Orders extends Component {
         return (
             <div>
                 <Order />
+                <Order />
             </div>
         );
     }

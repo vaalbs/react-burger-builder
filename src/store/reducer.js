@@ -3,11 +3,11 @@ import * as actionTypes from './actions';
 const initialState = {
     ingredients: {
         salad: 0,
-        meat: 0,
         bacon: 0,
-        cheese: 0
+        cheese: 0,
+        meat: 0
     },
-    totalPrice: ''
+    totalPrice: 4
 } 
 
 const reducer = (state = initialState, action) => {
@@ -17,7 +17,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 ingredients: {
                     ...state.ingredients,
-                    [action.ingredietName]: state.ingredients[action.ingredietName] + 1
+                    [action.ingredientName]: state.ingredients[action.ingredientName] + 1
                 }
             };
         case actionTypes.REMOVE_INGREDIENT:
@@ -25,13 +25,12 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 ingredients: {
                     ...state.ingredients,
-                    [action.ingredietName]: state.ingredients[action.ingredietName] - 1
+                    [action.ingredientName]: state.ingredients[action.ingredientName] - 1
                 }
             };
         default: 
             return state;
     }
-    return state;
-}
+};
 
 export default reducer;

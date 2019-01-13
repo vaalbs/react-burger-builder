@@ -199,10 +199,10 @@ const mapStateToProps = state => {
     }
 };
 
-const mapDipatchToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
     return {
         onOrderBurger: (orderData) => dispatch(actions.purchaseBurger(orderData))
     };
 };
 
-export default connect(mapStateToProps, mapDipatchToProps)(withErrorHandler(ContactData, axios));
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(ContactData, axios));

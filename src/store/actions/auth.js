@@ -1,4 +1,5 @@
 import * as actionTypes from './actionTypes';
+import axios from 'axios';
 
 export const authStart = () => {
     return{
@@ -20,8 +21,28 @@ export const authFail = (error) => {
     };
 };
 
-export const auth = (email, password) => {
+export const auth = (email, password, isSignup) => {
     return dispatch => {
         dispatch(authStart());
+        const authData = {
+            email: email,
+            password: password,
+            returnSecureToken: true
+        };
+        let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyCR1ZnW_cBZu2uubhIa3BG9LwhU1lmA228';
+
+        if(!isSignup){
+            url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyCR1ZnW_cBZu2uubhIa3BG9LwhU1lmA228';
+        }
+
+        axios.post(url, authData)
+        .then(response => {
+            console.log(response);
+            dispatch(authSuccess(response.data));
+        })
+        .catch(err => {
+            console.log(err);
+            dispatch(authFail(err));
+        });
     };
 };

@@ -28,7 +28,7 @@ export function* authUserSaga(action) {
         url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyCR1ZnW_cBZu2uubhIa3BG9LwhU1lmA228';
     }
     try{
-        const response = yield axios.post(url, authData)
+        const response = yield axios.post(url, authData);
         
         const expirationDate = yield new Date(new Date().getTime() + response.data.expiresIn * 1000);
         yield localStorage.setItem('token', response.data.idToken);
